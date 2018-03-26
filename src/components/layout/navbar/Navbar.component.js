@@ -1,10 +1,26 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
+import {connect} from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import DrawerComponent from '../drawer/Drawer.component'
 import RightBarMenu from '../right-bar-menu/RightBarMenu.component'
+import {getProfileData} from '../../providers/Layout.provider'
 
-export default class NavbarComponent extends React.Component {
+const mapStateToProps = (state) => {
+    return {
+        profile: state.LayoutReducer.profile
+    }
+}
+
+class NavbarComponent extends React.Component {
+
+    componentDidMount() {
+        this.props.getProfileData()
+    }
+
+    componentWillReceiveProps() {
+        console.log(this.props);
+    }
 
     onTitleClick() {
         console.log('menu')
@@ -21,9 +37,13 @@ export default class NavbarComponent extends React.Component {
                     title="App"
                     onLeftIconButtonClick={() => this.onLeftIconButtonClick()}
                     onTitleClick={() => this.onTitleClick()}
-                    iconElementLeft={<DrawerComponent/>}
-                    iconElementRight={<RightBarMenu/>}/>
+                    iconElementLeft={<DrawerComponent  userProfileData={this.props.profile}/>}
+                    iconElementRight={<RightBarMenu  userProfileData={this.props.profile}/>}/>
             </MuiThemeProvider>
         )
     }
 }
+
+export default connect(mapStateToProps, {
+    getProfileData
+})(NavbarComponent)

@@ -34,8 +34,8 @@ export default class DrawerComponent extends React.Component {
                     onRequestChange={(open) => this.setState({open})}>
                     <ListItem
                         disabled={true}
-                        leftAvatar={<Avatar>J</Avatar>}>
-                        Jose Manuel Pol
+                        leftAvatar={<Avatar>{this.props.userProfileData.name && this.props.userProfileData.name.substring(0, 1)}</Avatar>}>
+                        {this.props.userProfileData.name}
                     </ListItem>
                     <Subheader>Bugs</Subheader>
                     <MenuItem onClick={this.handleClose}>Listar bugs</MenuItem>

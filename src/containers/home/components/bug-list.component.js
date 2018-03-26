@@ -26,16 +26,16 @@ export default class BugListComponent extends React.Component {
                     <GridList
                         cellHeight={180}
                         style={styles.gridList}>
-                    <Subheader>Bugs</Subheader>
-                    {this.props.bugs && this.props.bugs.map((bug, i) => (
-                        <GridTile
-                            key={i}
-                            title={bug.title}
-                            subtitle={<div><span><b>{bug.description}</b></span><br/><span>creada por <b>{bug.author}</b></span></div>}
-                            actionIcon={<IconButton><StarBorder color="white"/></IconButton>}>
-                            <img src={bug.pictures[0]} />
-                        </GridTile>
-                    ))}
+                        <Subheader>Bugs</Subheader>
+                        {this.props.bugs && this.props.bugs.map((bug, i) => (
+                            <GridTile
+                                key={i}
+                                title={bug.title}
+                                subtitle={<div><span><b>{bug.description}</b></span><br/><span>creada por <b>{bug.author}</b></span></div>}
+                                actionIcon={<IconButton><StarBorder color="white"/></IconButton>}>
+                                <img src={bug.pictures[0] ? bug.pictures[0] : 'assets/imgs/default.png'} alt="bug" />
+                            </GridTile>
+                        ))}
                     </GridList>
                 </div>
             </MuiThemeProvider>
