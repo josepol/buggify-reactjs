@@ -19,7 +19,10 @@ class NavbarComponent extends React.Component {
     }
 
     componentWillReceiveProps() {
-        console.log(this.props);
+    }
+
+    componentDidUpdate(prevProps, newState) {
+        console.log(prevProps, newState)
     }
 
     onTitleClick() {

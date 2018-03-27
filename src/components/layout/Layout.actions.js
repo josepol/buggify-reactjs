@@ -1,8 +1,8 @@
-import {GET_PROFILE_DATA, GET_PROFILE_DATA_SUCCESS, GET_PROFILE_DATA_ERROR} from './Layout.constants'
+import {GET_PROFILE_DATA, GET_PROFILE_DATA_ERROR} from './Layout.constants'
 
-export const getProfileSuccess = (payload) => {
+export const getProfile = (payload) => {
     return {
-        type: GET_PROFILE_DATA_SUCCESS,
+        type: GET_PROFILE_DATA,
         payload
     }
 }

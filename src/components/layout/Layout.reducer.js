@@ -1,4 +1,4 @@
-import {GET_PROFILE_DATA, GET_PROFILE_DATA_SUCCESS} from './Layout.constants'
+import {GET_PROFILE_DATA} from './Layout.constants'
 
 
 const initialState = {
@@ -8,8 +8,6 @@ const initialState = {
 const layoutReducer = (state = initialState, action = {}) => {
     switch(action.type) {
         case GET_PROFILE_DATA:
-            return state
-        case GET_PROFILE_DATA_SUCCESS:
             return {
                 profile: action.payload
             }

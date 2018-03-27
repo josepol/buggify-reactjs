@@ -1,14 +1,8 @@
-import { LIST_BUGS, LIST_BUGS_SUCCESS, LIST_BUGS_ERROR } from "./Home.constants";
+import { LIST_BUGS, LIST_BUGS_ERROR } from "./Home.constants";
 
-export const listBugs = () => {
+export const listBugs = (payload) => {
     return {
-        type: LIST_BUGS
-    }
-}
-
-export const listBugsSuccess = (payload) => {
-    return {
-        type: LIST_BUGS_SUCCESS,
+        type: LIST_BUGS,
         payload
     }
 }
