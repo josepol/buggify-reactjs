@@ -20,7 +20,9 @@ class HomeContainer extends React.Component {
         return (
             <div>
                 <NavbarComponent />
-                <BugListComponent bugs={this.props.bugs} />
+                <div className="container">
+                    <BugListComponent bugs={this.props.bugs} />
+                </div>
             </div>
         )
     }
