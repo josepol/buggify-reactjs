@@ -1,12 +1,25 @@
 import React from 'react';
 
 export default class BugListComponent extends React.Component {
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
+        console.log(nextProps.bugs)
+        if (nextProps.bugs && nextProps.bugs.length > 0) {
+            const bugElements = document.getElementsByClassName('bugElement')
+            console.log(bugElements)
+            /*.map(element => element.addEventListener('mousemove', function checkHover() {
+                console.log('asdasdasd')
+            }))*/
+        }
+    }
+
     render() {
         return (
             <div className="row" style={style().bugListComponent}>
                 {this.props.bugs && this.props.bugs.map((bug, i) => (
-                    <div className="col-md-4" key={i}>
-                        <div className="col-md-12" style={style(bug).bugListElement}>
+                    <div className="bugElement col-md-4" key={i}>
+                        <div style={style(bug).bugListElement}>
                             <p><b>{bug.title}</b></p>
                             <p>Creada por <b>{bug.author}</b></p>
                             <p>{bug.description}</p>
@@ -21,6 +34,8 @@ export default class BugListComponent extends React.Component {
     }
 }
 
+const isHover = (element) => element && element.parentElement.querySelector(':hover') === element
+
 const style = (bug) => {
     return {
         bugListComponent: {
@@ -32,7 +47,7 @@ const style = (bug) => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center center',
             padding: '10px',
-            marginBottom: '30px'
+            marginBottom: '35px'
         }
     }
 }
