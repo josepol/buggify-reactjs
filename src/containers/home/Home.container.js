@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 class HomeContainer extends React.Component {
     
     componentDidMount() {
-        this.props.listBugsProvider()
+        this.props.listBugsProvider();
     }
 
     render() {

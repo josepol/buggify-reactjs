@@ -6,8 +6,6 @@ export function listBugsProvider() {
         return axios.get('assets/mocks/bugs.json').then(response => {
             dispatch(listBugs(response.data))
         })
-        .catch(error => {
-            dispatch(listBugsError())
-        })
+        .catch(error => dispatch(listBugsError()))
     }
 }

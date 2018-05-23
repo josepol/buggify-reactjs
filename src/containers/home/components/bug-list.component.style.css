@@ -1,0 +1,12 @@
+.bug-list-component {
+    margin-top: 40px;
+}
+
+.bug-list-element {
+    background-image: url('/assets/imgs/default.png');
+    background-size:'cover';
+    background-repeat: 'no-repeat';
+    background-position: 'center center';
+    padding: '10px';
+    margin-bottom: '35px';
+}

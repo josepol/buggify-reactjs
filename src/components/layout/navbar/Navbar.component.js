@@ -7,8 +7,15 @@ import RightBarMenu from '../right-bar-menu/RightBarMenu.component'
 import {getProfileData} from '../../providers/Layout.provider'
 
 const mapStateToProps = (state) => {
+    const layoutReducer = state.LayoutReducer
     return {
-        profile: state.LayoutReducer.profile
+        profile: layoutReducer.profile
+    }
+}
+
+const mapDispatchToProps = (state) => {
+    return {
+        getProfileData
     }
 }
 
@@ -47,6 +54,4 @@ class NavbarComponent extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, {
-    getProfileData
-})(NavbarComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarComponent)
