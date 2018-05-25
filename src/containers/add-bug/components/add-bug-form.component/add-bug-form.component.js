@@ -6,8 +6,20 @@ let AddBugForm = (props) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-                <label htmlFor="name">Name</label>
-                <Field name="name" component="input" type="text" />
+                <label htmlFor="title">Título</label>
+                <Field name="title" component="input" type="text" />
+            </div>
+            <div>
+                <label htmlFor="category">Categoria</label>
+                <Field name="category" component="select" >
+                    <option value="angular">Angular</option>
+                    <option value="react">React</option>
+                    <option value="vue">Vue</option>
+                </Field>
+            </div>
+            <div>
+                <label htmlFor="description">Descripción</label>
+                <Field name="description" component="textarea"/>
             </div>
             <button type="submit">Send</button>
         </form>
