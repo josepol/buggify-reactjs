@@ -3,10 +3,6 @@ import './bug-list.component.style.css';
 
 export default class BugListComponent extends React.Component {
 
-    componentWillReceiveProps(nextProps) {
-        
-    }
-
     clicked = (bugTitle) => {
         console.log('clicked', bugTitle);
     }

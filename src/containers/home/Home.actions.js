@@ -1,4 +1,4 @@
-import { LIST_BUGS, LIST_BUGS_ERROR } from "./Home.constants";
+import { LIST_BUGS, LIST_BUGS_ERROR, LOADING_BUGS } from "./Home.constants";
 
 export const listBugs = (payload) => {
     return {
@@ -10,5 +10,11 @@ export const listBugs = (payload) => {
 export const listBugsError = () => {
     return {
         type: LIST_BUGS_ERROR
+    }
+}
+
+export const listBugsLoading = () => {
+    return {
+        type: LOADING_BUGS
     }
 }

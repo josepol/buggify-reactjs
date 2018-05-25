@@ -13,9 +13,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        getProfileData
+        getProfileData: () => dispatch(getProfileData())
     }
 }
 
@@ -25,7 +25,9 @@ class NavbarComponent extends React.Component {
         this.props.getProfileData()
     }
 
-    componentWillReceiveProps() {
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(prevState);
+        return null
     }
 
     componentDidUpdate(prevProps, newState) {

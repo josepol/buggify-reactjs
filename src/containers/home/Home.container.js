@@ -1,12 +1,20 @@
 import React from 'react'
 import NavbarComponent from './../../components/layout/navbar/Navbar.component'
-import {connect} from 'react-redux'
-import {listBugsProvider} from './providers/home.provider'
+import { connect } from 'react-redux'
+import { listBugsProvider } from './providers/home.provider'
 import BugListComponent from './components/bug-list.component'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
         bugs: state.HomeReducer.bugs
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        listBugsProvider: () => {
+            return dispatch(listBugsProvider())
+        }
     }
 }
 
@@ -28,6 +36,4 @@ class HomeContainer extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, {
-    listBugsProvider
-})(HomeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)

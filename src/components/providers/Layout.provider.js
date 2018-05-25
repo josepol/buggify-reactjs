@@ -4,7 +4,7 @@ import {getProfile, getProfileError} from '../layout/Layout.actions'
 
 export function getProfileData() {
     return (dispatch) => {
-        return axios.get('assets/mocks/profile-data.json')
+        axios.get('assets/mocks/profile-data.json')
         .then(response => {
             dispatch(getProfile(response.data))
         })

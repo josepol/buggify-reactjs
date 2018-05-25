@@ -6,13 +6,7 @@ import Drawer from 'material-ui/Drawer'
 import ListItem from 'material-ui/List/ListItem'
 import Avatar from 'material-ui/Avatar'
 import Subheader from 'material-ui/Subheader'
-import FontIcon from 'material-ui/FontIcon'
 import Style from '../Layout.style'
-
-const iconStyles = {
-    marginRight: 24,
-    paddingTop: 30,
-  };
 
 export default class DrawerComponent extends React.Component {
     constructor() {
@@ -45,15 +39,14 @@ export default class DrawerComponent extends React.Component {
                         {this.props.userProfileData.name}
                     </ListItem>
                     <br/>
-                    <Subheader>Principal</Subheader>
-                    <MenuItem onClick={this.handleClose}><FontIcon className="material-icons" style={iconStyles} color={'#BCBCBC'}>home</FontIcon>INICIO</MenuItem>
-                    <MenuItem onClick={this.handleClose}><FontIcon className="material-icons" style={iconStyles} color={'#BCBCBC'}>archive</FontIcon>PRODUCTOS</MenuItem>
-                    <MenuItem onClick={this.handleClose}><FontIcon className="material-icons"color={'#BCBCBC'}>chart-bar</FontIcon>VENTAS</MenuItem>
+                    <Subheader>PRINCIPAL</Subheader>
+                    <MenuItem onClick={this.handleClose}>Incidencias</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Añadir incidencia</MenuItem>
                     <br/>
-                    <Subheader>Configuración</Subheader>
-                    <MenuItem onClick={this.handleClose}>ADMIN</MenuItem>
-                    <MenuItem onClick={this.handleClose}>PERFIL</MenuItem>
-                    <MenuItem onClick={this.handleClose}>CERRAR SESIÓN</MenuItem>
+                    <Subheader>CONFIGURACIÓN</Subheader>
+                    <MenuItem onClick={this.handleClose}>Admin</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Cerrar sesión</MenuItem>
                 </Drawer>
             </div>
         )
