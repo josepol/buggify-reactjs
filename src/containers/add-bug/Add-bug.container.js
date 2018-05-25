@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Field, reduxForm } from 'redux-form'
 import NavbarComponent from './../../components/layout/navbar/Navbar.component'
+import AddBugForm from './components/add-bug-form.component/add-bug-form.component'
 
 const mapStateToProps = (state) => {
     return {
@@ -14,24 +14,6 @@ const mapDispatchToProps = (dispatch) => {
 
     }
 }
-
-
-let AddBugForm = (props) => {
-    const { handleSubmit, onSubmit } = props
-    return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label htmlFor="name">Name</label>
-                <Field name="name" component="input" type="text" />
-            </div>
-            <button type="submit">Send</button>
-        </form>
-    )
-}
-
-AddBugForm = reduxForm({
-    form: 'add-bug'
-})(AddBugForm)
 
 class AddBugContainer extends Component {
 
