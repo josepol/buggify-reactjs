@@ -1,5 +1,11 @@
 .bug-list-container {
     margin-top: 40px;
+    display: table;
+}
+
+.cont {
+    width: 100%;
+    display: table-cell;
 }
 
 .bug-list-element {
@@ -23,7 +29,18 @@
 
 .bug-info {
     padding: 10px;
-    text-align: justify;
+    text-align: left; 
+}
+
+.bug-info .row {
+    padding-bottom: 7px;
+}
+
+.bug-description {
+    font-size: 0.8em;
+}
+
+.bug-label {
 }
 
 @keyframes bug-list-element-hover {

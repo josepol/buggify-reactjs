@@ -14,21 +14,21 @@ export default class BugListComponent extends React.Component {
         return (
             <div className="row bug-list-container">
                 {this.props.bugs && this.props.bugs.map((bug, i) => (
-                    <div className="col-md-4" key={i}>
+                    <div className="col-md-4 cont" key={i}>
                         <div className="bug-list-element" onClick={() => this.clicked(bug.title)}>
                             <img className="bug-img img-fluid" src="./assets/imgs/default.png" alt="bug-img"/>
                             <div className="bug-info">
-                                <Row>
-                                    <Col md={4}>Título</Col>
-                                    <Col md={8}><b>{bug.title}</b></Col>
+                                <Row className="row">
+                                    <Col className="bug-label" xs={12} md={4}>Título</Col>
+                                    <Col xs={12} md={6}><b>{bug.title}</b></Col>
                                 </Row>
-                                <Row>
-                                    <Col md={4}>Autor</Col>
-                                    <Col md={8}><b>{bug.author}</b></Col>
+                                <Row className="row">
+                                    <Col xs={12} md={4}>Autor</Col>
+                                    <Col xs={12} md={6}><b>{bug.author}</b></Col>
                                 </Row>
-                                <Row>
-                                    <Col md={4}>Descripción</Col>
-                                    <Col md={8}><b>{bug.description}</b></Col>
+                                <Row className="row">
+                                    <Col xs={12} md={4}>Descripción</Col>
+                                    <Col className="bug-description" xs={12} md={6}>{bug.description}</Col>
                                 </Row>
                             </div>
                         </div>
