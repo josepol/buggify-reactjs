@@ -1,0 +1,36 @@
+.bug-list-container {
+    margin-top: 40px;
+}
+
+.bug-list-element {
+    background-size:'cover';
+    background-repeat: 'no-repeat';
+    background-position: 'center center';
+    margin-bottom: 35px;
+    background-color: aliceblue;
+    box-shadow: 1px 1px 3px 0.1px rgba(156, 156, 156, 0.63);
+    cursor: pointer;
+}
+
+.bug-list-element :hover {
+    animation-name: bug-list-element-hover;
+    animation-duration: 1s;
+}
+
+.bug-img {
+    margin-bottom: 10px;
+}
+
+.bug-info {
+    padding: 10px;
+    text-align: justify;
+}
+
+@keyframes bug-list-element-hover {
+    from {
+        background-color: green !important;
+    }
+    to {
+        background-color: red !important;
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import {reduxForm, Field} from 'redux-form'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
-import './add-bug-form.style.css'
+import { Grid, Row, Col, Media, Button } from 'react-bootstrap'
+import './add-bug-form.style.scss'
 
 const validation = values => {
     const errors = {}
@@ -24,9 +24,12 @@ const warning = values => {
 
 const inputFieldComponent = ({input, label, type, inputClassName, meta: {touched, error, warning}}) => (
     <div>
-        <label>{label}</label>
-        <input className={inputClassName} type={type} {...input} />
-        {touched && error && <span>{error}</span>}
+        <Media>
+            <Media.Left><label>{label}</label></Media.Left>
+            <Media.Right><input className={inputClassName} type={type} {...input} />
+                {touched && error && <span>{error}</span>}
+            </Media.Right>
+        </Media>
     </div>
 )
 

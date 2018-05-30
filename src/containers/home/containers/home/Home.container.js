@@ -1,8 +1,8 @@
 import React from 'react'
-import NavbarComponent from './../../components/layout/navbar/Navbar.component'
+import NavbarComponent from '../../../../components/layout/navbar/Navbar.component'
 import { connect } from 'react-redux'
-import { listBugsProvider } from './providers/home.provider'
-import BugListComponent from './components/bug-list.component'
+import { listBugsProvider } from '../../providers/home.provider'
+import BugListComponent from '../../components/bug-list.component'
 
 const mapStateToProps = (state, props) => {
     return {
