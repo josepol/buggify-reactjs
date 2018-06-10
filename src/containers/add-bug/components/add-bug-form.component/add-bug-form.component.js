@@ -1,6 +1,6 @@
 import React from 'react'
 import {reduxForm, Field} from 'redux-form'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col, Media, Button } from 'react-bootstrap'
 import { Paper, Button } from '@material-ui/core'
 import SelectFieldComponent, { InputFieldComponent } from '../../../../components/commons/form-inputs/form-inputs.component'
 
@@ -24,6 +24,26 @@ const warning = values => {
     }
     return warnings
 }
+
+const inputFieldComponent = ({input, label, type, inputClassName, meta: {touched, error, warning}}) => (
+    <div>
+        <Media>
+            <Media.Left><label>{label}</label></Media.Left>
+            <Media.Right><input className={inputClassName} type={type} {...input} />
+                {touched && error && <span>{error}</span>}
+            </Media.Right>
+        </Media>
+    </div>
+)
+
+const selectFieldComponent = ({input, label, type, selectValues, selectClassName, meta: {touched, error, warning}}) => (
+    <div>
+        <label>{label}</label>
+        <select>
+            {selectValues.map((value, i) => (<option key={i} value={value.value}>{value.text}</option>))}
+        </select>
+    </div>
+)
 
 const selectValues =  [
     {text: 'Angular', value: 'angular'},
