@@ -1,6 +1,5 @@
 import {GET_PROFILE_DATA} from './Layout.constants'
 
-
 const initialState = {
     profile: {}
 }
