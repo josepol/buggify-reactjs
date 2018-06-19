@@ -46,7 +46,7 @@ class NavbarComponent extends React.Component {
         return (
             <MuiThemeProvider>
                 <AppBar
-                    title="App"
+                    title="Buggify"
                     onLeftIconButtonClick={() => this.onLeftIconButtonClick()}
                     onTitleClick={() => this.onTitleClick()}
                     iconElementLeft={<DrawerComponent  userProfileData={this.props.profile}/>}

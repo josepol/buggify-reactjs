@@ -3,7 +3,7 @@ import { loginAction, loginErrorAction, registerAction } from '../Login.action'
 import { ENDPOINT } from '../../../App.constants'
 
 export const loginProvider = (loginData) => {
-    return dispatch => axios.post(`${ENDPOINT}/auth/login`, loginData).then((response) => dispatch(loginAction(response.token)))
+    return dispatch => axios.post(`${ENDPOINT}/auth/login`, loginData).then((response) => dispatch(loginAction(response.data.token)))
     .catch(dispatch(loginErrorAction()))
 }
 
