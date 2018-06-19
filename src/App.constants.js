@@ -1,1 +1,1 @@
-export const ENDPOINT = process.env.NODE_ENV === 'development' ? 'http://localhost:3900' : ''
+export const ENDPOINT = process.env.NODE_ENV === 'development' ? 'http://localhost:3900' : 'buggify.api.polsastre.com'

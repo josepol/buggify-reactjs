@@ -1,15 +1,21 @@
-import { LOGIN } from './Login.constants'
+import { LOGIN, REGISTER } from './Login.constants'
 
-const initialSate = {
-
+const initialState = {
+    token: '',
+    status: false
 }
 
-const loginReducer = (state = initialSate, action = {}) => {
+const loginReducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case LOGIN:
         return {
             ...state,
             token: action.payload.token
+        }
+        case REGISTER:
+        return {
+            ...state,
+            status: action.payload
         }
         default:
         return state

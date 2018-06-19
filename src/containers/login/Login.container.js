@@ -1,6 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { loginProvider } from './providers/login.provider'
+import {connect} from 'react-redux'
+import {loginProvider} from './providers/login.provider'
+import LoginFormComponent from './components/login-form/login-form.component';
 
 const mapStateToProps = (state, props) => {
     return {
@@ -16,18 +17,20 @@ const mapDispatchToProps = (dispatch, props) => {
 
 class LoginContainer extends React.Component {
 
-    login(e) {
-        e.preventDefault();
-        this.props.login({
-            username: 'username', password: 'password'
-        });
+    constructor() {
+        super()
+        this.login = this.login.bind(this)
+    }
+
+    login(loginValues) {
+        this.props.login(loginValues);
     }
 
     render() {
         return (
             <React.Fragment>
-                <p>Login</p>
-                <button onClick={(e) => this.login(e)}>Login</button>
+                <h1>Login</h1>
+                <LoginFormComponent onSubmit={this.login} />
             </React.Fragment>
         )
     }
