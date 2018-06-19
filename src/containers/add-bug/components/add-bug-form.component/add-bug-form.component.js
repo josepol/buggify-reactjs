@@ -1,10 +1,10 @@
 import React from 'react'
 import {reduxForm, Field} from 'redux-form'
 import { Grid, Row, Col, Media, Button } from 'react-bootstrap'
-import { Paper, Button } from '@material-ui/core'
+import { Paper } from '@material-ui/core'
 import SelectFieldComponent, { InputFieldComponent } from '../../../../components/commons/form-inputs/form-inputs.component'
 
-import './add-bug-form.style.css'
+import './add-bug-form.style.scss'
 
 const validation = values => {
     const errors = {}
