@@ -26,14 +26,8 @@ class RegisterContainer extends React.Component {
         this.register = this.register.bind(this)
     }
 
-    componentWillReceiveProps(newProps) {
-        this.setState({
-            status: newProps.registerStatus
-        });
-    }
-
     componentDidUpdate(prevProps, nextState) {
-        if (this.state.status) {
+        if (this.props.registerStatus) {
             console.log('register bb-bi-biatch');
         } else {
             console.log('not logged yo bbiatch')

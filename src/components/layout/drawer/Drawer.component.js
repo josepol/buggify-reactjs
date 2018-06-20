@@ -7,21 +7,30 @@ import ListItem from 'material-ui/List/ListItem'
 import Avatar from 'material-ui/Avatar'
 import Subheader from 'material-ui/Subheader'
 import Style from '../Layout.style'
+import { Redirect, Link } from 'react-router-dom'
 
 export default class DrawerComponent extends React.Component {
     constructor() {
         super()
         this.state = {
-            open: false
+            open: false,
+            redirect: false,
+            redirectTo: undefined
         }
     }
 
-    handleToggle = () => this.setState({open: !this.state.open});
-    handleClose = () => this.setState({open: false});
+    handleToggle = () => this.setState({open: !this.state.open})
+    handleClose = () => this.setState({open: false})
+
+    redirect = () => {
+        if (this.state.redirect) 
+            return <Redirect to={this.state.redirectTo}/>
+    }
 
     render() {
         return (
             <div>
+                {this.redirect()}
                 <IconButton
                     onClick={this.handleToggle}
                     iconStyle={Style.iconButton}>
@@ -41,7 +50,7 @@ export default class DrawerComponent extends React.Component {
                     <br/>
                     <Subheader>PRINCIPAL</Subheader>
                     <MenuItem onClick={this.handleClose}>Incidencias</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Añadir incidencia</MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to='/add'>Añadir incidencia</Link></MenuItem>
                     <br/>
                     <Subheader>CONFIGURACIÓN</Subheader>
                     <MenuItem onClick={this.handleClose}>Admin</MenuItem>
