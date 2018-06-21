@@ -2,7 +2,6 @@ import React from 'react'
 import {reduxForm, Field} from 'redux-form'
 import { Grid, Row, Col, Media, Button } from 'react-bootstrap'
 import { Paper } from '@material-ui/core'
-import SelectFieldComponent, { InputFieldComponent } from '../../../../components/commons/form-inputs/form-inputs.component'
 
 import './add-bug-form.style.scss'
 
@@ -25,7 +24,7 @@ const warning = values => {
     return warnings
 }
 
-const inputFieldComponent = ({input, label, type, inputClassName, meta: {touched, error, warning}}) => (
+const InputFieldComponent = ({input, label, type, inputClassName, meta: {touched, error, warning}}) => (
     <div>
         <Media>
             <Media.Left><label>{label}</label></Media.Left>
@@ -36,7 +35,7 @@ const inputFieldComponent = ({input, label, type, inputClassName, meta: {touched
     </div>
 )
 
-const selectFieldComponent = ({input, label, type, selectValues, selectClassName, meta: {touched, error, warning}}) => (
+const SelectFieldComponent = ({input, label, type, selectValues, selectClassName, meta: {touched, error, warning}}) => (
     <div>
         <label>{label}</label>
         <select>

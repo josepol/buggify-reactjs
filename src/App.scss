@@ -1,4 +1,6 @@
-body {
-    text-align: center;
-}
-  
+@import "/scss/reset";
+@import "/assets/fonts/stylesheet";
+@import "/scss/variables";
+@import "/scss/mixins";
+@import "/scss/layout";
+@import "/scss/common";
