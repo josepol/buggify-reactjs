@@ -41,7 +41,6 @@ class RegisterContainer extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Register</h1>
                 <LoginFormComponent isRegister={true} onSubmit={this.register} />
             </React.Fragment>
         )
