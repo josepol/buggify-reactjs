@@ -49,7 +49,7 @@ const LoginFormComponent = props => {
                                 <Field name="username" placeholder="Username" component={LoginInputComponent} type="text" />
                                 <Field name="password" placeholder="Password" component={LoginInputComponent} type="password" />
                                 {<button type="submit">{isRegister ? 'Sign up' : 'Sign in'}</button>}
-                                <Link className="login-link" href={!isRegister ? '/#/register' : '/#/login'}>{!isRegister ? 'Sign up' : 'Sign in'}</Link>
+                                <Link className="login-link" to={!isRegister ? '/register' : '/login'}>{!isRegister ? 'Sign up' : 'Sign in'}</Link>
                             </Col>
                         </Row>
                     </form>
