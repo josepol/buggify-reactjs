@@ -32,7 +32,7 @@ const LoginInputComponent = ({input, type, placeholder, meta: {touched, submitFa
     )
 }
 
-const LoginFormComponent = props => {
+const loginFormComponent = props => {
     const { handleSubmit, onSubmit, isRegister } = props
     return (
         <React.Fragment>
@@ -60,9 +60,15 @@ const LoginFormComponent = props => {
     )
 };
 
-export default reduxForm({
+export const LoginFormComponent = reduxForm({
     form: 'login-form',
     validate,
     warn
-})(LoginFormComponent)
+})(loginFormComponent)
+
+export const RegisterFormComponent = reduxForm({
+    form: 'register-form',
+    validate,
+    warn
+})(loginFormComponent)
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {loginProvider} from '../providers/login.provider'
-import LoginFormComponent from '../components/login-form/login-form.component';
+import {LoginFormComponent} from '../components/login-form/login-form.component';
 
 const mapStateToProps = (state, props) => {
     return {

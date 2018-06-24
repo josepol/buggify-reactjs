@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {registerProvider} from '../providers/login.provider'
-import LoginFormComponent from '../components/login-form/login-form.component';
+import {RegisterFormComponent} from '../components/login-form/login-form.component';
 
 const mapStateToProps = (state, props) => {
     const loginReducer = state.LoginReducer
@@ -39,7 +39,7 @@ class RegisterContainer extends React.Component {
     }
 
     render() {
-        return <LoginFormComponent isRegister={true} onSubmit={this.register} />
+        return <RegisterFormComponent isRegister={true} onSubmit={this.register} />
     }
 }
 
