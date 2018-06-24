@@ -28,9 +28,9 @@ class RegisterContainer extends React.Component {
 
     componentDidUpdate(prevProps, nextState) {
         if (this.props.registerStatus) {
-            console.log('register bb-bi-biatch');
+            console.log('registered');
         } else {
-            console.log('not logged yo bbiatch')
+            console.log('not registered')
         }
     }
 
@@ -39,11 +39,7 @@ class RegisterContainer extends React.Component {
     }
 
     render() {
-        return (
-            <React.Fragment>
-                <LoginFormComponent isRegister={true} onSubmit={this.register} />
-            </React.Fragment>
-        )
+        return <LoginFormComponent isRegister={true} onSubmit={this.register} />
     }
 }
 

@@ -27,11 +27,7 @@ class LoginContainer extends React.Component {
     }
 
     render() {
-        return (
-            <React.Fragment>
-                <LoginFormComponent onSubmit={this.login} />
-            </React.Fragment>
-        )
+        return <LoginFormComponent onSubmit={this.login} />
     }
 }
 

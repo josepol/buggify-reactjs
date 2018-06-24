@@ -1,6 +1,7 @@
 import React from 'react'
 import {reduxForm, Field} from 'redux-form'
-import { Grid, Row, Col } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import {Grid, Row, Col} from 'react-bootstrap'
 
 const validate = values => {
     const errors = {}
@@ -25,8 +26,8 @@ const LoginInputComponent = ({input, type, placeholder, meta: {touched, submitFa
     return (
         <React.Fragment>
             <input type={type} {...input} placeholder={placeholder} />
-            <p>{submitFailed && error && <span>{error}</span>}</p>
-            <p>{submitFailed && warning && <span>{warning}</span>}</p>
+            <p className="error-msg">{submitFailed && error && <span>{error}</span>}</p>
+            <p className="warning-msg">{submitFailed && warning && <span>{warning}</span>}</p>
         </React.Fragment>
     )
 }
@@ -48,6 +49,7 @@ const LoginFormComponent = props => {
                                 <Field name="username" placeholder="Username" component={LoginInputComponent} type="text" />
                                 <Field name="password" placeholder="Password" component={LoginInputComponent} type="password" />
                                 {<button type="submit">{isRegister ? 'Sign up' : 'Sign in'}</button>}
+                                <Link className="login-link" href={!isRegister ? '/#/register' : '/#/login'}>{!isRegister ? 'Sign up' : 'Sign in'}</Link>
                             </Col>
                         </Row>
                     </form>

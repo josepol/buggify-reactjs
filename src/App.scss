@@ -27,8 +27,24 @@ body {
     }
 }
 
+a, a:hover, a:focus {
+    text-decoration: none !important;
+}
+
+.login-link {
+    display: block;
+    text-align: right !important;
+    padding-top: 5px !important;
+    padding-right: 5px !important;
+}
+
+
 .container {
     background-color: #F8F8F8 !important;
+}
+
+.home-container {
+    padding-top: 30px;
 }
 
 .left-container {
@@ -59,6 +75,20 @@ button {
     width: 100%;
 }
 
+.error-msg {
+    color: red;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.warning-msg {
+    color: yellow;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+}
+
 // Common
 
 .text-center {
@@ -67,4 +97,8 @@ button {
 
 .login-form {
     padding: 20px 0px;
+}
+
+.background-purple {
+    background-color: #6574DB;
 }

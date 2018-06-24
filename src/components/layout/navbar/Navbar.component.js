@@ -47,6 +47,7 @@ class NavbarComponent extends React.Component {
             <MuiThemeProvider>
                 <AppBar
                     title="Buggify"
+                    style={{backgroundColor: '#6574DB'}}
                     onLeftIconButtonClick={() => this.onLeftIconButtonClick()}
                     onTitleClick={() => this.onTitleClick()}
                     iconElementLeft={<DrawerComponent  userProfileData={this.props.profile}/>}
