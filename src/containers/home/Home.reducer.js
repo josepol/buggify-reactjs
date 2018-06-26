@@ -1,22 +1,29 @@
-import {LIST_BUGS, LIST_BUGS_ERROR, LOADING_BUGS} from './Home.constants';
+import {LIST_BUGS, LIST_BUGS_ERROR, REFRESH_USER, REFRESH_USER_ERROR} from './Home.constants';
 
 const initialState = {
-    bugs: []
+    bugs: [],
+    refreshStatus: false
 }
 
 const homeReducer = (state = initialState, action = {}) => {
     switch(action.type) {
         case LIST_BUGS:
             return {
-                state,
+                ...state,
                 bugs: action.payload
             }
         case LIST_BUGS_ERROR:
-            console.log('error');
-        return state;
-        case LOADING_BUGS:
-            console.log('LOADING_BUGS');
-        return state;
+            return state;
+        case REFRESH_USER:
+            return {
+                ...state,
+                refreshStatus: !!action.payload.data.token ? 'ok' : 'ko'
+            };
+        case REFRESH_USER_ERROR:
+            return {
+                ...state,
+                refreshStatus: 'ko'
+            };;
         default:
             return state
     }

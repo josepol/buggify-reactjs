@@ -1,5 +1,5 @@
 import * as axios from 'axios'
-import {listBugs, listBugsError, listBugsLoading} from '../Home.actions'
+import {listBugs, listBugsError, refreshUser, refreshUserError} from '../Home.actions'
 import { ENDPOINT } from '../../../App.constants'
 
 export function listBugsProvider() {
@@ -8,10 +8,8 @@ export function listBugsProvider() {
     .catch(error => dispatch(listBugsError()))
 }
 
-export function refreshUser() {
+export function refreshUserProvider() {
     return dispatch => axios.get(`${ENDPOINT}/auth/refresh`)
-    .then((response) => {
-        console.log(response)
-    })
-    // .catch(dispatch(loginErrorAction()))
+    .then((response) => dispatch(refreshUser(response)))
+    .catch(error => dispatch(refreshUserError()))
 }

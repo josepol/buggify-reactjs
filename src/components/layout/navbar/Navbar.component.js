@@ -26,12 +26,7 @@ class NavbarComponent extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        console.log(prevState);
         return null
-    }
-
-    componentDidUpdate(prevProps, newState) {
-        console.log(prevProps, newState)
     }
 
     onTitleClick() {

@@ -15,7 +15,6 @@ export const InputFieldComponent = ({input, label, type, inputClassName, meta: {
 const SelectFieldComponent = ({input, label, type, selectValues, value, selectClassName, meta: {touched, error, warning}}) => {
 
     const onSelectChange = (event) => {
-        console.log('asdasd')
         value = event.target.value
     }
 
