@@ -4,10 +4,8 @@ import {loginProvider} from '../providers/login.provider'
 import {LoginFormComponent} from '../components/login-form/login-form.component';
 
 const mapStateToProps = (state, props) => {
-    const loginReducer = state.LoginReducer
-    console.log(loginReducer.token);
     return {
-        loginStatus: loginReducer.token
+        loginStatus: state.LoginReducer.token
     }
 }
 

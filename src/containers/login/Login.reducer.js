@@ -1,4 +1,5 @@
 import { LOGIN, REGISTER } from './Login.constants'
+import * as axios from 'axios'
 
 const initialState = {
     token: '',
@@ -8,7 +9,8 @@ const initialState = {
 const loginReducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case LOGIN:
-        localStorage.setItem('token', action.payload)
+        localStorage.setItem('token', `bearer ${action.payload}`)
+        axios.defaults.headers.common['authorization'] = `bearer ${action.payload}`
         return {
             ...state,
             token: action.payload

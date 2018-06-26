@@ -4,9 +4,8 @@ import {registerProvider} from '../providers/login.provider'
 import {RegisterFormComponent} from '../components/login-form/login-form.component';
 
 const mapStateToProps = (state, props) => {
-    const loginReducer = state.LoginReducer
     return {
-        registerStatus: loginReducer.status
+        registerStatus: state.LoginReducer.status
     }
 }
 
@@ -26,11 +25,9 @@ class RegisterContainer extends React.Component {
         this.register = this.register.bind(this)
     }
 
-    componentDidUpdate(prevProps, nextState) {
+    componentDidUpdate(prevProps, prevState) {
         if (this.props.registerStatus) {
-            console.log('registered');
-        } else {
-            console.log('not registered')
+            this.props.history.push('/')
         }
     }
 
