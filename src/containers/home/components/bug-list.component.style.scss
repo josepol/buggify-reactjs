@@ -1,7 +1,9 @@
+@import "../../../scss/variables";
+
 .bug-list-container {
     margin-top: 40px;
     display: table;
-    background-color: white;
+    background-color: $white;
 }
 
 .cont {
@@ -14,8 +16,8 @@
     background-repeat: 'no-repeat';
     background-position: 'center center';
     margin-bottom: 35px;
-    background-color: #6574DB;
-    color: white;
+    background-color: $purple;
+    color: $white;
     box-shadow: 1px 1px 3px 0.1px rgba(156, 156, 156, 0.63);
     cursor: pointer;
 }
@@ -44,9 +46,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 200px;
-}
-
-.bug-label {
 }
 
 @keyframes bug-list-element-hover {

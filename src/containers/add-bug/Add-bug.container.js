@@ -25,7 +25,7 @@ class AddBugContainer extends Component {
         return (
             <div>
                 <NavbarComponent />
-                <div className="container">
+                <div className="container add-bug-container">
                     <AddBugForm onSubmit={this.submit} />
                 </div>
             </div>
