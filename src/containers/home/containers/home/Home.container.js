@@ -38,8 +38,7 @@ class HomeContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(this.props.refreshStatus)
-        if (this.props.refreshStatus === 'ko') {
+        if (prevProps.refreshStatus !== this.props.refreshStatus && this.props.refreshStatus === 'ko') {
             this.props.history.push('/login')
         }
     }
