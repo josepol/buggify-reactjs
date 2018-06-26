@@ -48,14 +48,14 @@ export default class DrawerComponent extends React.Component {
                         {this.props.userProfileData.name}
                     </ListItem>
                     <br/>
-                    <Subheader>PRINCIPAL</Subheader>
-                    <MenuItem onClick={this.handleClose}>Incidencias</MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to='/add'>Añadir incidencia</Link></MenuItem>
+                    <Subheader>MAIN</Subheader>
+                    <MenuItem onClick={this.handleClose}>Bugs</MenuItem>
+                    <MenuItem onClick={this.handleClose}><Link to='/add'>Snippets</Link></MenuItem>
                     <br/>
-                    <Subheader>CONFIGURACIÓN</Subheader>
+                    <Subheader>CONFIG</Subheader>
                     <MenuItem onClick={this.handleClose}>Admin</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Cerrar sesión</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
                 </Drawer>
             </div>
         )

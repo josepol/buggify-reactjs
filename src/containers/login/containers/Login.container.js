@@ -4,8 +4,10 @@ import {loginProvider} from '../providers/login.provider'
 import {LoginFormComponent} from '../components/login-form/login-form.component';
 
 const mapStateToProps = (state, props) => {
+    const loginReducer = state.LoginReducer
+    console.log(loginReducer.token);
     return {
-
+        loginStatus: loginReducer.token
     }
 }
 
@@ -20,6 +22,12 @@ class LoginContainer extends React.Component {
     constructor() {
         super()
         this.login = this.login.bind(this)
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.loginStatus) {
+            this.props.history.push('/')
+        }
     }
 
     login(loginValues) {
