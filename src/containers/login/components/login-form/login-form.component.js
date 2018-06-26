@@ -3,6 +3,8 @@ import {reduxForm, Field} from 'redux-form'
 import {Link} from 'react-router-dom'
 import {Grid, Row, Col} from 'react-bootstrap'
 
+import './login-form.component.scss'
+
 const validate = values => {
     const errors = {}
     if (!values.username)  {

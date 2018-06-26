@@ -1,0 +1,28 @@
+@import "../../../../scss/variables";
+
+.loginFormComponent {
+    margin-top: 30px;
+}
+
+.left-container {
+    background-color: $purple;
+    padding-top: 75px;
+    color: $white;
+}
+
+.login-link {
+    display: block;
+    text-align: right !important;
+    padding-top: 5px !important;
+    padding-right: 5px !important;
+}
+
+.login-form {
+    padding: 20px 0px;
+}
+
+@media (max-width: 700px) {
+    .loginFormComponent {
+        margin-top: 0px;
+    }
+}

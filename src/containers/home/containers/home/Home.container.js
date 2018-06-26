@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { listBugsProvider } from '../../providers/home.provider'
 import BugListComponent from '../../components/bug-list.component'
 
+import './home.container.scss'
+
 const mapStateToProps = (state, props) => {
     return {
         bugs: state.HomeReducer.bugs
