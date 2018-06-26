@@ -4,18 +4,7 @@
 @import "/scss/layout";
 @import "/scss/common";
 @import "/scss/components/input";
-
-//Variables
-$white: white;
-$soft-white: #F8F8F8;
-$soft-grey: #D9DBE6;
-$black: black;
-$purple: #6574DB;
-
-// Layout
-
-body {
-}
+@import "/scss/components/button";
 
 .loginFormComponent {
     margin-top: 30px;
@@ -27,10 +16,6 @@ body {
     }
 }
 
-a, a:hover, a:focus {
-    text-decoration: none !important;
-}
-
 .login-link {
     display: block;
     text-align: right !important;
@@ -38,68 +23,17 @@ a, a:hover, a:focus {
     padding-right: 5px !important;
 }
 
-
-.container {
-    background-color: #F8F8F8 !important;
-}
-
 .home-container {
     padding-top: 30px;
-    background-color: white !important;
+    background-color: $white !important;
 }
 
 .left-container {
-    background-color: #6574DB;
+    background-color: $purple;
     padding-top: 75px;
-    color: white;
-}
-
-input {
-    height: 50px;
-    font-size: 14px;
-    padding: 20px;
-    border: solid 2px #D9DBE6;
-    color: #D9DBE6;
-    width: 100%;
-}
-
-input:focus {
-    outline: none;
-    border: solid 3px #6574DB;
-}
-
-button {
-    height: 50px;
-    background-color: #6574DB;
-    border: solid 2px white;
-    color: white;
-    width: 100%;
-}
-
-.error-msg {
-    color: red;
-    font-size: 13px;
-    text-align: center;
-    margin-top: 5px;
-}
-
-.warning-msg {
-    color: yellow;
-    font-size: 13px;
-    text-align: center;
-    margin-top: 5px;
-}
-
-// Common
-
-.text-center {
-    text-align: center;
+    color: $white;
 }
 
 .login-form {
     padding: 20px 0px;
-}
-
-.background-purple {
-    background-color: #6574DB;
 }

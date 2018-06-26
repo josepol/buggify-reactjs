@@ -1,3 +1,24 @@
 body {
-    background-color: red;
+}
+
+.container {
+    background-color: $soft-white !important;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none !important;
+}
+
+.error-msg {
+    color: $error;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.warning-msg {
+    color: $warning;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
 }
