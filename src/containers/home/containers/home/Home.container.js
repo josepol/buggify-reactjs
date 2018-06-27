@@ -2,7 +2,7 @@ import React from 'react'
 import NavbarComponent from '../../../../components/layout/navbar/Navbar.component'
 import { connect } from 'react-redux'
 import { listBugsProvider, refreshUserProvider } from '../../providers/home.provider'
-import BugListComponent from '../../components/bug-list.component'
+import BugListComponent from '../../components/bug-list/bug-list.component'
 
 import './home.container.scss'
 
@@ -22,13 +22,9 @@ const mapDispatchToProps = (dispatch, props) => {
 
 class HomeContainer extends React.Component {
 
-    constructor() {
-        super()
-    }
-
-    componentWillMount() {
+    static getDerivedStateFromProps(nextProps, prevState) {
         if (!localStorage.getItem('token')) {
-            this.props.history.push('/login')
+            nextProps.history.push('/login')
         }
     }
     
