@@ -30,11 +30,9 @@ class NavbarComponent extends React.Component {
     }
 
     onTitleClick() {
-        console.log('menu')
     }
 
     onLeftIconButtonClick() {
-        console.log('title')
     }
 
     render() {

@@ -37,7 +37,6 @@ const LoginInputComponent = ({input, type, placeholder, meta: {touched, submitFa
 const loginFormComponent = props => {
     const { handleSubmit, onSubmit, isRegister } = props
     return (
-        <React.Fragment>
         <Grid className="loginFormComponent container">
             <Row>
                 <Col md={4} className="left-container">
@@ -58,7 +57,6 @@ const loginFormComponent = props => {
                 </Col>
             </Row>
         </Grid>
-        </React.Fragment>
     )
 };
 

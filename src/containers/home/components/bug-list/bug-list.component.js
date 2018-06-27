@@ -19,16 +19,20 @@ export default class BugListComponent extends React.Component {
                             <img className="bug-img img-fluid" src="./assets/imgs/default.png" alt="bug-img"/>
                             <div className="bug-info">
                                 <Row className="row">
-                                    <Col className="bug-label" xs={12} md={4}>Título</Col>
+                                    <Col className="bug-label" xs={12} md={4}>Title</Col>
                                     <Col xs={12} md={6}><b>{bug.title}</b></Col>
                                 </Row>
                                 <Row className="row">
-                                    <Col xs={12} md={4}>Autor</Col>
+                                    <Col xs={12} md={4}>Author</Col>
                                     <Col xs={12} md={6}><b>{bug.author}</b></Col>
                                 </Row>
                                 <Row className="row">
-                                    <Col xs={12} md={4}>Descripción</Col>
+                                    <Col xs={12} md={4}>Description</Col>
                                     <Col className="bug-description" xs={12} md={6}>{bug.description}</Col>
+                                </Row>
+                                <Row className="row">
+                                    <Col xs={12} md={4}>Solution</Col>
+                                    <Col className="bug-description" xs={12} md={6}>{bug.solution}</Col>
                                 </Row>
                             </div>
                         </div>

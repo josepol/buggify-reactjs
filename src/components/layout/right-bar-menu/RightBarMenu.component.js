@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
@@ -17,9 +18,9 @@ export default class RightBarMenu extends React.Component {
                 }
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}>
-                <MenuItem primaryText="Admin" />
-                <MenuItem primaryText="Profile" />
-                <MenuItem primaryText="Logout" />
+                <MenuItem><Link to='/'>Admin</Link></MenuItem>
+                <MenuItem><Link to='/'>Profile</Link></MenuItem>
+                <MenuItem><Link to='/'>Logout</Link></MenuItem>
             </IconMenu>
         )
     }

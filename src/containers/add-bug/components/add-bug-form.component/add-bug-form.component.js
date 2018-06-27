@@ -1,6 +1,7 @@
 import React from 'react'
 import {reduxForm, Field} from 'redux-form'
-import { Grid, Row, Col, Media, Button } from 'react-bootstrap'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 import './add-bug-form.style.scss'
 
@@ -25,7 +26,7 @@ const warn = values => {
 
 const InputFieldComponent = ({input, label, type, inputClassName, meta: {touched, error, warning, submitFailed}}) => (
     <div>
-        <label>{label}</label>
+        <label className="label">{label}</label><br/>
         <input className={inputClassName} type={type} {...input} />
         {submitFailed && error && <span className="error-msg">{error}</span>}
     </div>
@@ -33,10 +34,18 @@ const InputFieldComponent = ({input, label, type, inputClassName, meta: {touched
 
 const SelectFieldComponent = ({input, label, type, selectValues, selectClassName, meta: {touched, error, warning}}) => (
     <div>
-        <label>{label}</label>
+        <label className="label">{label}</label><br/>
         <select>
             {selectValues.map((value, i) => (<option key={i} value={value.value}>{value.text}</option>))}
         </select>
+    </div>
+)
+
+const TexareaFieldComponent = ({input, label, meta: {touched, error, warning, submitFailed}}) => (
+    <div>
+        <label className="label">{label}</label><br/>
+        <textarea {...input} cols="30" rows="4"></textarea>
+        {submitFailed && error && <span className="error-msg">{error}</span>}
     </div>
 )
 
@@ -50,33 +59,19 @@ let AddBugForm = (props) => {
     const { handleSubmit, onSubmit } = props
     return (
         <Grid className="padding">
+        <Link to="/"><i class="material-icons arrow-back">arrow_back</i></Link>
             <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-                <Row>
-                    <Col md={4} xsOffset={4}>
-                        <Field name="title" label="Título" component={InputFieldComponent} type="text" inputClassName="add-bug-input-text" />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={4} xsOffset={4}>
-                        <Field name="email" component={InputFieldComponent} type="text" label="Email" inputClassName="add-bug-input-text" />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={4} xsOffset={4}>
-                        <Field name="category" label="Categoria" component={SelectFieldComponent} selectClassName="add-bug-input-text" selectValues={selectValues}  />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={4} xsOffset={4}>
-                        <label>Descripción</label>
-                        <Field name="description" component="textarea"/>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={4} xsOffset={4}>
-                        <Button variant="raised" type="submit">Guardar</Button>
-                    </Col>
-                </Row>
+            <Row>
+                <Col md={6} mdOffset={3}>
+                    <Field name="title" label="Title" component={InputFieldComponent} type="text" inputClassName="add-bug-input-text" />
+                    <Field name="author" label="Author" component={InputFieldComponent} type="text" inputClassName="add-bug-input-text" />
+                    <Field name="category" label="Category" component={SelectFieldComponent} selectClassName="add-bug-input-text" selectValues={selectValues}  />
+                    <Field label="Description" name="description" component={TexareaFieldComponent} />
+                    <Field label="Solution" name="solution" component={TexareaFieldComponent} />
+                    <Button className="save-btn" variant="raised" type="submit">Save</Button>
+                </Col>
+                <Col className="bug-icon-col"><i class="material-icons bug-icon">bug_report</i></Col>
+            </Row>
             </form>
         </Grid>
     )

@@ -3,6 +3,7 @@ import NavbarComponent from '../../../../components/layout/navbar/Navbar.compone
 import { connect } from 'react-redux'
 import { listBugsProvider, refreshUserProvider } from '../../providers/home.provider'
 import BugListComponent from '../../components/bug-list/bug-list.component'
+import { Button } from 'react-bootstrap'
 
 import './home.container.scss'
 
@@ -22,10 +23,17 @@ const mapDispatchToProps = (dispatch, props) => {
 
 class HomeContainer extends React.Component {
 
+    constructor() {
+        super()
+        this.state = {}
+        this.addBug = this.addBug.bind(this)
+    }
+
     static getDerivedStateFromProps(nextProps, prevState) {
         if (!localStorage.getItem('token')) {
             nextProps.history.push('/login')
         }
+        return null
     }
     
     componentDidMount() {
@@ -39,11 +47,16 @@ class HomeContainer extends React.Component {
         }
     }
 
+    addBug() {
+        this.props.history.push('/add-bug')
+    }
+
     render() {
         return (
             <div>
                 <NavbarComponent />
                 <div className="container home-container">
+                    <Button variant="raised" type="button" onClick={this.addBug}>Add bug</Button>
                     <BugListComponent bugs={this.props.bugs} />
                 </div>
             </div>

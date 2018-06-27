@@ -8,7 +8,7 @@ import RegisterContainer from './containers/login/containers/Register.container'
 export default () => (
     <Switch>
         <Route exact path='/' component={HomeContainer} />
-        <Route exact path='/add' component={AddBugContainer} />
+        <Route exact path='/add-bug' component={AddBugContainer} />
         <Route exact path='/login' component={LoginContainer} />
         <Route exact path='/register' component={RegisterContainer} />
     </Switch>

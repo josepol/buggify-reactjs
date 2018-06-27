@@ -49,13 +49,13 @@ export default class DrawerComponent extends React.Component {
                     </ListItem>
                     <br/>
                     <Subheader>MAIN</Subheader>
-                    <MenuItem onClick={this.handleClose}>Bugs</MenuItem>
-                    <MenuItem onClick={this.handleClose}><Link to='/add'>Snippets</Link></MenuItem>
+                    <Link to='/'><MenuItem onClick={this.handleClose}>Bugs</MenuItem></Link>
+                    <Link to='/snippets'><MenuItem onClick={this.handleClose}>Snippets</MenuItem></Link>
                     <br/>
                     <Subheader>CONFIG</Subheader>
-                    <MenuItem onClick={this.handleClose}>Admin</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <Link to='/'><MenuItem onClick={this.handleClose}>Admin</MenuItem></Link>
+                    <Link to='/'><MenuItem onClick={this.handleClose}>Profile</MenuItem></Link>
+                    <Link to='/'><MenuItem onClick={this.handleClose}>Logout</MenuItem></Link>
                 </Drawer>
             </div>
         )
