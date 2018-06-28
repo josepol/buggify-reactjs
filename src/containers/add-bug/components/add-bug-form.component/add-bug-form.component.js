@@ -2,6 +2,7 @@ import React from 'react'
 import {reduxForm, Field} from 'redux-form'
 import { Grid, Row, Col, Button } from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import FileFieldComponent from '../../../../components/common/input-file/input-file.component'
 
 import './add-bug-form.style.scss'
 
@@ -59,7 +60,7 @@ let AddBugForm = (props) => {
     const { handleSubmit, onSubmit } = props
     return (
         <Grid className="padding">
-        <Link to="/"><i class="material-icons arrow-back">arrow_back</i></Link>
+            <Link to="/"><i className="material-icons arrow-back">arrow_back</i></Link>
             <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
             <Row>
                 <Col md={6} mdOffset={3}>
@@ -68,9 +69,10 @@ let AddBugForm = (props) => {
                     <Field name="category" label="Category" component={SelectFieldComponent} selectClassName="add-bug-input-text" selectValues={selectValues}  />
                     <Field label="Description" name="description" component={TexareaFieldComponent} />
                     <Field label="Solution" name="solution" component={TexareaFieldComponent} />
+                    <Field name="file" component={FileFieldComponent} />
                     <Button className="save-btn" variant="raised" type="submit">Save</Button>
                 </Col>
-                <Col className="bug-icon-col"><i class="material-icons bug-icon">bug_report</i></Col>
+                <Col className="bug-icon-col"><i className="material-icons bug-icon">bug_report</i></Col>
             </Row>
             </form>
         </Grid>
