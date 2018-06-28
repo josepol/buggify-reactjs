@@ -9,15 +9,14 @@ input, select {
     border-radius: 5px;
 }
 
-input:focus, select:focus, textarea:focus {
+input, input:focus, select, select:focus, textarea, textarea:focus {
     outline: none;
-    border: solid 3px $purple;
+    border: solid 1px $purple;
 }
 
 textarea {
     width: 100%;
     resize: none;
-    border: none;
     overflow: auto;
     outline: none;
     background-color: $white;
