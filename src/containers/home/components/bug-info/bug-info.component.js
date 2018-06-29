@@ -1,17 +1,7 @@
 import React from 'react'
 import ReactModal from 'react-modal'
 
-const customStyles = {
-    content : {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      width: '70%',
-      transform: 'translate(-50%, -50%)',
-      border: 'solid 1px #6574DB',
-      backgroundColor: '#F8F8F8'
-    }
-  };
+import './bug-info.component.scss'
 
 export default class BugInfoComponent extends React.Component {
     constructor() {
@@ -31,7 +21,7 @@ export default class BugInfoComponent extends React.Component {
             <ReactModal
                 isOpen={this.props.isBugInfoModalOpen}
                 onRequestClose={this.closeBugInfoModal}
-                style={customStyles}>
+                className="modal-content">
                 <h1>Modal</h1>
                 <button onClick={this.closeBugInfoModal}>close</button>
             </ReactModal>
