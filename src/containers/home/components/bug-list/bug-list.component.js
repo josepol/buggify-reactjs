@@ -49,7 +49,7 @@ export default class BugListComponent extends React.Component {
                     </div>
                 ))}
                 <button onClick={this.closeBugInfoModal}>close</button>
-                <BugInfoComponent isBugInfoModalOpen={this.state.isBugInfoModalOpen} />
+                <BugInfoComponent isBugInfoModalOpen={this.state.isBugInfoModalOpen} closeBugInfoModal={this.closeBugInfoModal} />
             </div>
         )
     }

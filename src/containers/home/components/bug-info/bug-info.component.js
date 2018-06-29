@@ -17,28 +17,19 @@ export default class BugInfoComponent extends React.Component {
     constructor() {
         super()
         this.state = {
-            isBugInfoModalOpen: false
+            isBugInfoModalOpen: false,
         }
         this.closeBugInfoModal = this.closeBugInfoModal.bind(this)
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {
-            isBugInfoModalOpen: nextProps.isBugInfoModalOpen
-        }
-    }
-
     closeBugInfoModal = () => {
-        console.log(this.state)
-        this.setState({isBugInfoModalOpen: false}, () => {
-            console.log(this.state)
-        })
+        this.props.closeBugInfoModal()
     }
 
     render() {
         return (
             <ReactModal
-                isOpen={this.state.isBugInfoModalOpen}
+                isOpen={this.props.isBugInfoModalOpen}
                 onRequestClose={this.closeBugInfoModal}
                 style={customStyles}>
                 <h1>Modal</h1>
