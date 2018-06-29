@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 
 import './bug-info.component.scss'
 
@@ -22,8 +23,21 @@ export default class BugInfoComponent extends React.Component {
                 isOpen={this.props.isBugInfoModalOpen}
                 onRequestClose={this.closeBugInfoModal}
                 className="modal-content">
-                <h1>Modal</h1>
-                <button onClick={this.closeBugInfoModal}>close</button>
+                <Grid className="padding scroll-y">
+                    <Row>
+                        <Col md={6} mdOffset={3}>
+                            <label className="label">Title</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.title}</p>
+                            <label className="label">Author</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.author}</p>
+                            <label className="label">Description</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.description}</p>
+                            <label className="label">Solution</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.solution}</p>
+                        </Col>
+                    </Row>
+                </Grid>
+                <button className="close-btn" onClick={this.closeBugInfoModal}>close</button>
             </ReactModal>
         )
     }

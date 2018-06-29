@@ -8,7 +8,8 @@ export default class BugListComponent extends React.Component {
     constructor() {
         super()
         this.state = {
-            isBugInfoModalOpen: false
+            isBugInfoModalOpen: false,
+            bugSelected: null
         }
     }
 
@@ -16,8 +17,10 @@ export default class BugListComponent extends React.Component {
 
     closeBugInfoModal = () => this.setState({isBugInfoModalOpen: false})
 
-    clicked = (bugTitle) => {
-        this.openBugInfoModal()
+    clicked = (bugSelected) => {
+        this.setState({
+            bugSelected
+        }, () => this.openBugInfoModal())
     }
 
     render() {
@@ -25,7 +28,7 @@ export default class BugListComponent extends React.Component {
             <div className="row bug-list-container">
                 {this.props.bugs && this.props.bugs.map((bug, i) => (
                     <div className="col-md-4 cont" key={i}>
-                        <div className="bug-list-element" onClick={() => this.clicked(bug.title)}>
+                        <div className="bug-list-element" onClick={() => this.clicked(bug)}>
                             <img className="bug-img img-fluid" src="./assets/imgs/default.png" alt="bug-img"/>
                             <div className="bug-info">
                                 <Row className="row">
@@ -49,7 +52,10 @@ export default class BugListComponent extends React.Component {
                     </div>
                 ))}
                 <button onClick={this.closeBugInfoModal}>close</button>
-                <BugInfoComponent isBugInfoModalOpen={this.state.isBugInfoModalOpen} closeBugInfoModal={this.closeBugInfoModal} />
+                <BugInfoComponent
+                    bugSelected={this.state.bugSelected}
+                    isBugInfoModalOpen={this.state.isBugInfoModalOpen}
+                    closeBugInfoModal={this.closeBugInfoModal} />
             </div>
         )
     }
