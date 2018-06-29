@@ -1,13 +1,23 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap'
-
+import BugInfoComponent from '../bug-info/bug-info.component'
 
 import './bug-list.component.style.scss';
 
 export default class BugListComponent extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            isBugInfoModalOpen: false
+        }
+    }
+
+    openBugInfoModal = () => this.setState({isBugInfoModalOpen: true})
+
+    closeBugInfoModal = () => this.setState({isBugInfoModalOpen: false})
 
     clicked = (bugTitle) => {
-        console.log('clicked', bugTitle);
+        this.openBugInfoModal()
     }
 
     render() {
@@ -38,6 +48,8 @@ export default class BugListComponent extends React.Component {
                         </div>
                     </div>
                 ))}
+                <button onClick={this.closeBugInfoModal}>close</button>
+                <BugInfoComponent isBugInfoModalOpen={this.state.isBugInfoModalOpen} />
             </div>
         )
     }

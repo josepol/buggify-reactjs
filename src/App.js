@@ -1,7 +1,10 @@
 import React from 'react'
 import * as axios from 'axios'
+import Modal from 'react-modal'
 
 import AppRoute from './App.route'
+
+Modal.setAppElement('#root')
 
 class App extends React.Component {
   

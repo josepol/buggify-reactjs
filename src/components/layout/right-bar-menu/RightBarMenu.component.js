@@ -18,8 +18,6 @@ export default class RightBarMenu extends React.Component {
                 }
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}>
-                <MenuItem><Link to='/'>Admin</Link></MenuItem>
-                <MenuItem><Link to='/'>Profile</Link></MenuItem>
                 <MenuItem><Link to='/'>Logout</Link></MenuItem>
             </IconMenu>
         )

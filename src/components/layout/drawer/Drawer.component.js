@@ -53,8 +53,6 @@ export default class DrawerComponent extends React.Component {
                     <Link to='/snippets'><MenuItem onClick={this.handleClose}>Snippets</MenuItem></Link>
                     <br/>
                     <Subheader>CONFIG</Subheader>
-                    <Link to='/'><MenuItem onClick={this.handleClose}>Admin</MenuItem></Link>
-                    <Link to='/'><MenuItem onClick={this.handleClose}>Profile</MenuItem></Link>
                     <Link to='/'><MenuItem onClick={this.handleClose}>Logout</MenuItem></Link>
                 </Drawer>
             </div>
