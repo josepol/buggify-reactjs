@@ -1,6 +1,7 @@
 import React from 'react'
 import AppBar from 'material-ui/AppBar'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import DrawerComponent from '../drawer/Drawer.component'
 import RightBarMenu from '../right-bar-menu/RightBarMenu.component'
