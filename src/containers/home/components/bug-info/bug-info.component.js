@@ -1,48 +1,43 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import { Grid, Row, Col, Button } from 'react-bootstrap'
 
-const customStyles = {
-    content : {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      width: '70%',
-      transform: 'translate(-50%, -50%)',
-      border: 'solid 1px #6574DB',
-      backgroundColor: '#F8F8F8'
-    }
-  };
+import './bug-info.component.scss'
 
 export default class BugInfoComponent extends React.Component {
     constructor() {
         super()
         this.state = {
-            isBugInfoModalOpen: false
+            isBugInfoModalOpen: false,
         }
         this.closeBugInfoModal = this.closeBugInfoModal.bind(this)
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {
-            isBugInfoModalOpen: nextProps.isBugInfoModalOpen
-        }
-    }
-
     closeBugInfoModal = () => {
-        console.log(this.state)
-        this.setState({isBugInfoModalOpen: false}, () => {
-            console.log(this.state)
-        })
+        this.props.closeBugInfoModal()
     }
 
     render() {
         return (
             <ReactModal
-                isOpen={this.state.isBugInfoModalOpen}
+                isOpen={this.props.isBugInfoModalOpen}
                 onRequestClose={this.closeBugInfoModal}
-                style={customStyles}>
-                <h1>Modal</h1>
-                <button onClick={this.closeBugInfoModal}>close</button>
+                className="modal-content">
+                <Grid className="padding scroll-y">
+                    <Row>
+                        <Col md={6} mdOffset={3}>
+                            <label className="label">Title</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.title}</p>
+                            <label className="label">Author</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.author}</p>
+                            <label className="label">Description</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.description}</p>
+                            <label className="label">Solution</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.solution}</p>
+                        </Col>
+                    </Row>
+                </Grid>
+                <button className="close-btn" onClick={this.closeBugInfoModal}>close</button>
             </ReactModal>
         )
     }

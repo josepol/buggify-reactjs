@@ -7,6 +7,15 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import Style from '../Layout.style'
 
 export default class RightBarMenu extends React.Component {
+    constructor() {
+        super()
+        this.logout = this.logout.bind(this)
+    }
+
+    logout() {
+        localStorage.clear()
+    }
+
     render() {
         return (
             <IconMenu
@@ -18,7 +27,7 @@ export default class RightBarMenu extends React.Component {
                 }
                 anchorOrigin={{horizontal: 'left', vertical: 'top'}}
                 targetOrigin={{horizontal: 'left', vertical: 'top'}}>
-                <MenuItem><Link to='/'>Logout</Link></MenuItem>
+                <MenuItem onClick={this.logout}><Link to='/'>Logout</Link></MenuItem>
             </IconMenu>
         )
     }

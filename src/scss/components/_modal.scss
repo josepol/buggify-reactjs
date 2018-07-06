@@ -1,0 +1,18 @@
+.modal-content {
+    top: 60%;
+    left: 50%;
+    height: 400px;
+    overflow-x: hidden;
+    right: auto;
+    width: 50% !important;
+    transform: translate(-50%, -50%);
+    border: solid 1px $purple;
+    background-color: $purple !important;
+}
+
+@media (max-width: 400px) {
+  .modal-content {
+      top: 50%;
+      width: 80% !important;
+  }
+}
