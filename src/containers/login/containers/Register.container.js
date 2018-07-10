@@ -27,7 +27,7 @@ class RegisterContainer extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.registerStatus) {
-            this.props.history.push('/')
+            this.props.history.push('/login')
         }
     }
 

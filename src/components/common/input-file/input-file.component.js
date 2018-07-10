@@ -1,6 +1,7 @@
 import React from 'react'
 
 class FileFieldComponent extends React.Component {
+
   constructor(props) {
     super(props)
     this.onChange = this.onChange.bind(this)
@@ -12,9 +13,7 @@ class FileFieldComponent extends React.Component {
   }
 
   render() {
-    return (<input
-      type="file"
-      onChange={this.onChange} />)
+    return (<input type="file" onChange={this.onChange} />)
   }
 }
 
