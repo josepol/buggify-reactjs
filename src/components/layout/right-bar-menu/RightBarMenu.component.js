@@ -6,28 +6,36 @@ import IconButton from 'material-ui/IconButton'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import Style from '../Layout.style'
 
+const iconMenuConfig = {
+    horizontal: 'left',
+    vertical: 'top'
+}
+
 export default class RightBarMenu extends React.Component {
     constructor() {
         super()
         this.logout = this.logout.bind(this)
+        this.iconButton = this.iconButton.bind(this)
     }
 
     logout() {
         localStorage.clear()
     }
 
+    iconButton = (
+        <IconButton
+            iconStyle={Style.iconButton}>
+            <MoreVertIcon />
+        </IconButton>
+    )
+
     render() {
         return (
             <IconMenu
-                iconButtonElement={
-                    <IconButton
-                        iconStyle={Style.iconButton}>
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-                targetOrigin={{horizontal: 'left', vertical: 'top'}}>
-                <MenuItem onClick={this.logout}><Link to='/'>Logout</Link></MenuItem>
+                iconButtonElement={this.iconButton}
+                anchorOrigin={iconMenuConfig}
+                targetOrigin={iconMenuConfig} >
+                <Link to='/'><MenuItem onClick={this.logout}>Logout</MenuItem></Link>
             </IconMenu>
         )
     }

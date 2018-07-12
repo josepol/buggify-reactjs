@@ -1,19 +1,15 @@
 import React from 'react'
-import { TextField, MenuItem, Input, withStyles } from '@material-ui/core'
-import Select from '@material-ui/core/Select';
 
 import './form-inputs.style.scss'
 
-export const InputComponent = ({ input, type, label, placeholder, meta: { touched, submitFailed, error, warning } }) => {
-    return (
-        <React.Fragment>
-            {label && <label className="label">{label}</label>}
-            <input type={type} {...input} placeholder={placeholder} />
-            <p className="error-msg">{submitFailed && error && <span>{error}</span>}</p>
-            <p className="warning-msg">{submitFailed && warning && <span>{warning}</span>}</p>
-        </React.Fragment>
-    )
-}
+export const InputComponent = ({ input, type, label, placeholder, meta: { touched, submitFailed, error, warning } }) => (
+    <React.Fragment>
+        {label && <label className="label">{label}</label>}
+        <input type={type} {...input} placeholder={placeholder} />
+        <p className="error-msg">{submitFailed && error && <span>{error}</span>}</p>
+        <p className="warning-msg">{submitFailed && warning && <span>{warning}</span>}</p>
+    </React.Fragment>
+)
 
 export const SelectFieldComponent = ({ input, label, type, selectValues, selectClassName, meta: { touched, error, warning } }) => (
     <React.Fragment>
