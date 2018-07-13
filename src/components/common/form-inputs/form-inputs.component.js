@@ -24,6 +24,7 @@ export const TexareaFieldComponent = ({ input, label, meta: { touched, error, wa
     <React.Fragment>
         <label className="label">{label}</label><br />
         <textarea {...input} cols="30" rows="4"></textarea>
-        {submitFailed && error && <span className="error-msg">{error}</span>}
+        <p className="error-msg">{submitFailed && error && <span>{error}</span>}</p>
+        <p className="warning-msg">{submitFailed && warning && <span>{warning}</span>}</p>
     </React.Fragment>
 )

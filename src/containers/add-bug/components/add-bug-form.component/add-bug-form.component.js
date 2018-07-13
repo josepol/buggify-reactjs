@@ -10,7 +10,16 @@ import './add-bug-form.style.scss'
 const validate = values => {
     const errors = {}
     if (!values.title) {
-        errors.title = 'titulo requerido'
+        errors.title = 'title required'
+    }
+    if (!values.author) {
+        errors.author = 'author required'
+    }
+    if (!values.description) {
+        errors.description = 'description required'
+    }
+    if (!values.solution) {
+        errors.solution = 'solution required'
     }
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = 'formato de email incorrecto'
@@ -43,8 +52,8 @@ let AddBugForm = (props) => {
                         <Field name="title" label="Title" component={InputComponent} type="text" inputClassName="add-bug-input-text" />
                         <Field name="author" label="Author" component={InputComponent} type="text" inputClassName="add-bug-input-text" />
                         <Field name="category" label="Category" component={SelectFieldComponent} selectClassName="add-bug-input-text" selectValues={selectValues} />
-                        <Field label="Description" name="description" component={TexareaFieldComponent} />
-                        <Field label="Solution" name="solution" component={TexareaFieldComponent} />
+                        <Field name="description" label="Description" component={TexareaFieldComponent} />
+                        <Field name="solution" label="Solution" component={TexareaFieldComponent} />
                         <Field name="file" component={FileFieldComponent} />
                         <Button className="save-btn" variant="raised" type="submit">Save</Button>
                     </Col>
