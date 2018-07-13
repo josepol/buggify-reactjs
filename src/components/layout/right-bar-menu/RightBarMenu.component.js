@@ -15,7 +15,6 @@ export default class RightBarMenu extends React.Component {
     constructor() {
         super()
         this.logout = this.logout.bind(this)
-        this.iconButton = this.iconButton.bind(this)
     }
 
     logout() {

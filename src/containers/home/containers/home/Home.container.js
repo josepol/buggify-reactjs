@@ -42,9 +42,9 @@ class HomeContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.refreshStatus !== this.props.refreshStatus && this.props.refreshStatus === 'ko') {
+        /*if (prevProps.refreshStatus !== this.props.refreshStatus && this.props.refreshStatus === 'ko') {
             this.props.history.push('/login')
-        }
+        }*/
     }
 
     addBug() {

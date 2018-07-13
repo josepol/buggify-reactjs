@@ -1,7 +1,7 @@
 import React from 'react'
 import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import MenuIcon from '@material-ui/icons/Menu';
 import Drawer from 'material-ui/Drawer'
 import ListItem from 'material-ui/List/ListItem'
 import Avatar from 'material-ui/Avatar'
@@ -27,14 +27,18 @@ export default class DrawerComponent extends React.Component {
             return <Redirect to={this.state.redirectTo}/>
     }
 
+    avatar = (
+        <Avatar>{this.props && this.props.userProfileData.name && this.props.userProfileData.name.substring(0, 1)}</Avatar>
+    )
+
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {this.redirect()}
                 <IconButton
                     onClick={this.handleToggle}
                     iconStyle={Style.iconButton}>
-                    <MoreVertIcon />
+                    <MenuIcon />
                 </IconButton>
                 <Drawer
                     docked={false}
@@ -44,7 +48,7 @@ export default class DrawerComponent extends React.Component {
                     <br/>
                     <ListItem
                         disabled={true}
-                        leftAvatar={<Avatar>{this.props.userProfileData.name && this.props.userProfileData.name.substring(0, 1)}</Avatar>}>
+                        leftAvatar={this.avatar}>
                         {this.props.userProfileData.name}
                     </ListItem>
                     <br/>
@@ -55,7 +59,7 @@ export default class DrawerComponent extends React.Component {
                     <Subheader>CONFIG</Subheader>
                     <Link to='/'><MenuItem onClick={this.handleClose}>Logout</MenuItem></Link>
                 </Drawer>
-            </div>
+            </React.Fragment>
         )
     }
 }
