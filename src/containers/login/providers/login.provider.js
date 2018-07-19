@@ -1,5 +1,5 @@
 import * as axios from 'axios'
-import { loginAction, loginErrorAction, registerAction } from '../Login.action'
+import { loginAction, loginErrorAction, registerAction, registerErrorAction } from '../Login.action'
 import { ENDPOINT } from '../../../App.constants'
 
 export const loginProvider = (loginData) => {
@@ -9,5 +9,5 @@ export const loginProvider = (loginData) => {
 
 export const registerProvider = (registerData) => {
     return dispatch => axios.post(`${ENDPOINT}/auth/register`, registerData).then((response) => dispatch(registerAction(response.data.status)))
-    .catch(dispatch(loginErrorAction()))
+    .catch(dispatch(registerErrorAction()))
 }

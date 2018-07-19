@@ -1,9 +1,9 @@
-import { LOGIN, REGISTER } from './Login.constants'
+import { LOGIN, REGISTER, LOGIN_ERROR, REGISTER_ERROR } from './Login.constants'
 import * as axios from 'axios'
 
 const initialState = {
     token: '',
-    status: false
+    status: ''
 }
 
 const setAuthTokenAndHeader = (action) => {
@@ -23,7 +23,20 @@ const loginReducer = (state = initialState, action = {}) => {
         setAuthTokenAndHeader(action)
         return {
             ...state,
-            status: action.payload
+            status: action.payload,
+            random: Math.random(10)
+        }
+        case LOGIN_ERROR:
+        return {
+            ...state,
+            token: false,
+            random: Math.random(10)
+        }
+        case REGISTER_ERROR: 
+        return {
+            ...state,
+            status: false,
+            random: Math.random(10)
         }
         default:
         return state

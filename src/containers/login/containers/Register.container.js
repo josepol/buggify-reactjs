@@ -1,11 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {registerProvider} from '../providers/login.provider'
-import {RegisterFormComponent} from '../components/login-form/login-form.component';
+import {RegisterFormComponent} from '../components/login-form/login-form.component'
+import * as Toastr from 'toastr'
 
 const mapStateToProps = (state, props) => {
     return {
-        registerStatus: state.LoginReducer.status
+        registerStatus: state.LoginReducer.status,
+        random: state.LoginReducer.random
     }
 }
 
@@ -27,7 +29,10 @@ class RegisterContainer extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.registerStatus) {
+            Toastr.success('User registered successfully')
             this.props.history.push('/login')
+        } else {
+            Toastr.error('User registered error')
         }
     }
 
