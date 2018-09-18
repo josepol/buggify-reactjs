@@ -33,7 +33,7 @@ class LoginContainer extends React.Component {
     }
 
     login(loginValues) {
-        this.props.login(loginValues);
+        this.props.login(loginValues)
     }
 
     render() {
