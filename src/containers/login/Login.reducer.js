@@ -17,20 +17,21 @@ const loginReducer = (state = initialState, action = {}) => {
         setAuthTokenAndHeader(action)
         return {
             ...state,
-            token: action.payload
+            token: action.payload,
+            random: Math.random(10)
         }
         case REGISTER:
         setAuthTokenAndHeader(action)
         return {
             ...state,
             status: action.payload,
-            // random: Math.random(10)
+            random: Math.random(10)
         }
         case LOGIN_ERROR:
         return {
             ...state,
             token: false,
-            // random: Math.random(10)
+            random: Math.random(10)
         }
         case REGISTER_ERROR: 
         return {

@@ -6,7 +6,8 @@ import * as Toastr from 'toastr'
 
 const mapStateToProps = (state, props) => {
     return {
-        loginStatus: state.LoginReducer.token
+        loginStatus: state.LoginReducer.token,
+        random: state.LoginReducer.random
     }
 }
 
