@@ -24,13 +24,13 @@ const loginReducer = (state = initialState, action = {}) => {
         return {
             ...state,
             status: action.payload,
-            random: Math.random(10)
+            // random: Math.random(10)
         }
         case LOGIN_ERROR:
         return {
             ...state,
             token: false,
-            random: Math.random(10)
+            // random: Math.random(10)
         }
         case REGISTER_ERROR: 
         return {

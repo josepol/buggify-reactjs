@@ -6,8 +6,7 @@ import * as Toastr from 'toastr'
 
 const mapStateToProps = (state, props) => {
     return {
-        registerStatus: state.LoginReducer.status,
-        random: state.LoginReducer.random
+        registerStatus: state.LoginReducer.status
     }
 }
 
@@ -32,7 +31,7 @@ class RegisterContainer extends React.Component {
             Toastr.success('User registered successfully')
             this.props.history.push('/login')
         } else {
-            Toastr.error('User registered error')
+            Toastr.error('There was a problem registering the user')
         }
     }
 

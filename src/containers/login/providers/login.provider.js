@@ -3,11 +3,13 @@ import { loginAction, loginErrorAction, registerAction, registerErrorAction } fr
 import { ENDPOINT } from '../../../App.constants'
 
 export const loginProvider = (loginData) => {
-    return dispatch => axios.post(`${ENDPOINT}/auth/login`, loginData).then((response) => dispatch(loginAction(response.data.token),
-    (error) => dispatch(loginErrorAction())))
+    return dispatch => axios.post(`${ENDPOINT}/auth/login`, loginData)
+    .then((response) => dispatch(loginAction(response.data.token)))
+    .catch(error => dispatch(loginErrorAction()))
 }
 
 export const registerProvider = (registerData) => {
-    return dispatch => axios.post(`${ENDPOINT}/auth/register`, registerData).then((response) => dispatch(registerAction(response.data.status),
-    (error) => dispatch(registerErrorAction())))
+    return dispatch => axios.post(`${ENDPOINT}/auth/register`, registerData)
+    .then((response) => dispatch(registerAction(response.data.status)))
+    .catch(error => dispatch(registerErrorAction()))
 }
