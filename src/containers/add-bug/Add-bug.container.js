@@ -4,7 +4,9 @@ import NavbarComponent from './../../components/layout/navbar/Navbar.component'
 import AddBugForm from './components/add-bug-form.component/add-bug-form.component'
 import { refreshUserProvider } from '../home/providers/home.provider'
 import { addBugProvider } from './providers/add-bug.provider'
-import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom'
+import * as Toastr from 'toastr'
+import { resetAddBugStatus } from './Add-bug.actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -16,11 +18,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         refreshUser: () => dispatch(refreshUserProvider()),
-        addBug: (bug) => dispatch(addBugProvider(bug))
+        addBug: (bug) => dispatch(addBugProvider(bug)),
+        resetAddBugStatus: () => dispatch(resetAddBugStatus())
     }
 }
 
 class AddBugContainer extends Component {
+
+    initial = true
 
     constructor() {
         super()
@@ -28,23 +33,25 @@ class AddBugContainer extends Component {
         this.authMiddleware = this.authMiddleware.bind(this)
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (!localStorage.getItem('token')) {
-            nextProps.history.push('/login')
-        }
-        console.log(nextProps, prevState);
-        return null
-    }
-
     componentDidMount() {
         this.props.refreshUser()
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.refreshStatus !== this.props.refreshStatus && this.props.refreshStatus === 'ko') {
-            this.props.history.push('/login')
+        this.addBugCallback();
+        this.props.resetAddBugStatus();
+    }
+
+    addBugCallback = () => {
+        if (this.props.addBugStatus === undefined || this.initial) {
+            this.initial = false
+            return;
         }
-        console.log(prevProps, prevState);
+        if (this.props.addBugStatus) {
+            Toastr.success('Bug registered successfully')
+        } else {
+            Toastr.error('There was a problem registering the bug')
+        }
     }
 
     authMiddleware = () => {
@@ -52,6 +59,7 @@ class AddBugContainer extends Component {
     }
 
     submit = (value) => {
+        console.log(value)
         this.props.addBug(value);
     }
 

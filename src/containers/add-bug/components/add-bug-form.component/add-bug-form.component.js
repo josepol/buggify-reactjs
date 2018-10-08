@@ -15,6 +15,9 @@ const validate = values => {
     if (!values.author) {
         errors.author = 'author required'
     }
+    if (!values.category) {
+        errors.category = 'category required'
+    }
     if (!values.description) {
         errors.description = 'description required'
     }

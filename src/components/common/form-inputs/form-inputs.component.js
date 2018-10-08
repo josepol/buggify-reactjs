@@ -11,12 +11,14 @@ export const InputComponent = ({ input, type, label, placeholder, meta: { touche
     </React.Fragment>
 )
 
-export const SelectFieldComponent = ({ input, label, type, selectValues, selectClassName, meta: { touched, error, warning } }) => (
+export const SelectFieldComponent = ({ input, label, type, selectValues, selectClassName, meta: { touched, error, warning, submitFailed } }) => (
     <React.Fragment>
         <label className="label">{label}</label><br />
-        <select>
+        <select {...input}>
+            <option value="">Seleccionar</option>
             {selectValues.map((value, i) => (<option key={i} value={value.value}>{value.text}</option>))}
         </select>
+        <p className="error-msg">{submitFailed && error && <span>{error}</span>}</p>
     </React.Fragment>
 )
 
