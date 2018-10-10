@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import NavbarComponent from './../../components/layout/navbar/Navbar.component'
 import AddBugForm from './components/add-bug-form.component/add-bug-form.component'
 import { refreshUserProvider } from '../home/providers/home.provider'
-import { addBugProvider } from './providers/add-bug.provider'
+import { addBugProvider, addFileProvider } from './providers/add-bug.provider'
 import {Redirect} from 'react-router-dom'
 import * as Toastr from 'toastr'
 import { resetAddBugStatus } from './Add-bug.actions'
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         refreshUser: () => dispatch(refreshUserProvider()),
         addBug: (bug) => dispatch(addBugProvider(bug)),
+        addFile: (formData) => dispatch(addFileProvider(formData)),
         resetAddBugStatus: () => dispatch(resetAddBugStatus())
     }
 }
@@ -47,7 +48,9 @@ class AddBugContainer extends Component {
             this.initial = false
             return;
         }
-        if (this.props.addBugStatus) {
+        console.log(this.props)
+        if (this.props.addBugStatus && this.props.bugId) {
+            this.sendImage(this.props.bugId, this.state.file)
             Toastr.success('Bug registered successfully')
         } else {
             Toastr.error('There was a problem registering the bug')
@@ -59,8 +62,18 @@ class AddBugContainer extends Component {
     }
 
     submit = (value) => {
-        console.log(value)
-        this.props.addBug(value);
+        this.props.addBug(value)
+        this.setState({
+            file: value.file
+        })
+    }
+
+    sendImage = (id, file) => {
+        console.log(this.props)
+        const formData = new FormData()
+        formData.append('id', id)
+        formData.append('file', file)
+        this.props.addFile(formData)
     }
 
     render() {

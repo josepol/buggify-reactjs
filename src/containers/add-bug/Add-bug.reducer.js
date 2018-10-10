@@ -5,19 +5,22 @@ const initialState = {
 }
 
 const AddBugReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
         case ADD_BUG:
-            console.log(action)
             return {
-                addBugStatus: action.payload
+                addBugStatus: action.payload.status,
+                bugId: action.payload.id
             }
         case ADD_BUG_ERROR:
             return {
-                addBugStatus: action.payload
+                addBugStatus: action.payload,
+                bugId: ''
             }
         case RESET_ADD_BUG_STATUS:
             return {
-                addBugStatus: undefined
+                addBugStatus: undefined,
+                bugId: undefined
             }
         default:
         return state;
