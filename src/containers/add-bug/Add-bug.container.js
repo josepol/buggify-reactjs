@@ -11,7 +11,8 @@ import { resetAddBugStatus } from './Add-bug.actions'
 const mapStateToProps = (state) => {
     return {
         refreshStatus: state.HomeReducer.refreshStatus,
-        addBugStatus: state.AddBugReducer.addBugStatus
+        addBugStatus: state.AddBugReducer.addBugStatus,
+        bugId: state.AddBugReducer.bugId
     }
 }
 
@@ -44,12 +45,13 @@ class AddBugContainer extends Component {
     }
 
     addBugCallback = () => {
-        if (this.props.addBugStatus === undefined || this.initial) {
-            this.initial = false
+        if (this.props.addBugStatus === undefined) {
             return;
         }
         if (this.props.addBugStatus && this.props.bugId) {
-            this.sendImage(this.props.bugId, this.state.file)
+            if (this.state.file) {
+                this.sendImage(this.props.bugId, this.state.file)
+            }
             Toastr.success('Bug registered successfully')
         } else {
             Toastr.error('There was a problem registering the bug')
