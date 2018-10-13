@@ -13,7 +13,7 @@ class FileFieldComponent extends React.Component {
   }
 
   render() {
-    return (<input type="file" onChange={this.onChange} />)
+    return (<input type="file" onChange={this.onChange} enctype="multipart/form-data"/>)
   }
 }
 
