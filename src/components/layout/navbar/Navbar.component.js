@@ -26,7 +26,6 @@ class NavbarComponent extends React.Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        // console.log(nextProps, prevState);
         return null
     }
 

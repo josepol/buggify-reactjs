@@ -48,7 +48,6 @@ class AddBugContainer extends Component {
             this.initial = false
             return;
         }
-        console.log(this.props)
         if (this.props.addBugStatus && this.props.bugId) {
             this.sendImage(this.props.bugId, this.state.file)
             Toastr.success('Bug registered successfully')
@@ -69,7 +68,6 @@ class AddBugContainer extends Component {
     }
 
     sendImage = (id, file) => {
-        console.log(this.props)
         const formData = new FormData()
         formData.append('id', id)
         formData.append('file', file)
