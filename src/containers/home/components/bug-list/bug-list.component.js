@@ -36,7 +36,7 @@ export default class BugListComponent extends React.Component {
     }
 
     confirmBugDelete = () => {
-        console.log('delete', this.state.bugSelected)
+        this.props.deleteBug(this.state.bugSelected)
         this.closeDeleteConfirmationModal()
     }
 

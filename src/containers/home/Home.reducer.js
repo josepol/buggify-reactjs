@@ -1,8 +1,9 @@
-import {LIST_BUGS, LIST_BUGS_ERROR, REFRESH_USER, REFRESH_USER_ERROR} from './Home.constants';
+import {LIST_BUGS, LIST_BUGS_ERROR, REFRESH_USER, REFRESH_USER_ERROR, DELETE_BUG_SUCCESS, DELETE_BUG_ERROR, DELETE_BUG_UNDEFINED} from './Home.constants';
 
 const initialState = {
     bugs: [],
-    refreshStatus: false
+    refreshStatus: false,
+    deleteBugStatus: false
 }
 
 const homeReducer = (state = initialState, action = {}) => {
@@ -18,12 +19,27 @@ const homeReducer = (state = initialState, action = {}) => {
             return {
                 ...state,
                 refreshStatus: !!action.payload.data.token ? 'ok' : 'ko'
-            };
+            }
         case REFRESH_USER_ERROR:
             return {
                 ...state,
                 refreshStatus: 'ko'
-            };;
+            }
+        case DELETE_BUG_SUCCESS:
+            return {
+                ...state,
+                deleteBugStatus: action.payload.data.status
+            }
+        case DELETE_BUG_ERROR:
+            return {
+                ...state,
+                deleteBugStatus: false
+            }
+        case DELETE_BUG_UNDEFINED:
+            return {
+                ...state,
+                deleteBugStatus: undefined
+            }
         default:
             return state
     }
