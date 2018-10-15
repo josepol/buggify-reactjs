@@ -33,6 +33,7 @@
 .bug-info {
     padding: 10px;
     text-align: left; 
+    cursor: default;
 }
 
 .bug-info .row {
@@ -45,6 +46,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 200px;
+}
+
+.x-img {
+    position: absolute;
+    top: 10px;
+    right: 25px;
 }
 
 @keyframes bug-list-element-hover {

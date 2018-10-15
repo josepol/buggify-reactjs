@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactModal from 'react-modal'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 import './bug-info.component.scss'
 
