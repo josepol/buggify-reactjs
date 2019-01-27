@@ -5,6 +5,11 @@
     color: $grey;
 }
 
+label {
+    display: inline-block;
+    margin-bottom: .5rem !important;
+}
+
 .save-btn {
     margin-top: 10px;
 }

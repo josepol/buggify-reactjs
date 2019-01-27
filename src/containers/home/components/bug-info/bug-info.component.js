@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactModal from 'react-modal'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 import './bug-info.component.scss'
 
@@ -25,9 +25,11 @@ export default class BugInfoComponent extends React.Component {
                 className="modal-content">
                 <Grid className="padding scroll-y">
                     <Row>
-                        <Col md={6} mdOffset={3}>
+                        <Col md={12}>
                             <label className="label">Title</label><br/>
                             <p>{this.props.bugSelected && this.props.bugSelected.title}</p>
+                            <label className="label">Category</label><br/>
+                            <p>{this.props.bugSelected && this.props.bugSelected.category}</p>
                             <label className="label">Author</label><br/>
                             <p>{this.props.bugSelected && this.props.bugSelected.author}</p>
                             <label className="label">Description</label><br/>

@@ -1,6 +1,7 @@
 import React from 'react'
 import * as axios from 'axios'
 import Modal from 'react-modal'
+import './/../node_modules/toastr/build/toastr.css';
 
 import AppRoute from './App.route'
 

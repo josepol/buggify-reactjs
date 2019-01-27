@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap'
 import BugInfoComponent from '../bug-info/bug-info.component'
+import ConfirmationModal from '../../../../components/layout/confirmation-modal/confirmation-modal'
 
 import './bug-list.component.style.scss';
 
@@ -9,6 +10,7 @@ export default class BugListComponent extends React.Component {
         super()
         this.state = {
             isBugInfoModalOpen: false,
+            isBugDeleteConfirmationModalOpen: false,
             bugSelected: null
         }
     }
@@ -17,10 +19,25 @@ export default class BugListComponent extends React.Component {
 
     closeBugInfoModal = () => this.setState({isBugInfoModalOpen: false})
 
+    openDeleteConfirmationModal = () => this.setState({isBugDeleteConfirmationModalOpen: true})
+
+    closeDeleteConfirmationModal = () => this.setState({isBugDeleteConfirmationModalOpen: false})
+
     clicked = (bugSelected) => {
         this.setState({
             bugSelected
         }, () => this.openBugInfoModal())
+    }
+
+    deleteClicked = (bugSelected) => {
+        this.setState({
+            bugSelected
+        }, () => this.openDeleteConfirmationModal())
+    }
+
+    confirmBugDelete = () => {
+        this.props.deleteBug(this.state.bugSelected)
+        this.closeDeleteConfirmationModal()
     }
 
     render() {
@@ -28,24 +45,21 @@ export default class BugListComponent extends React.Component {
             <div className="row bug-list-container">
                 {this.props.bugs && this.props.bugs.map((bug, i) => (
                     <div className="col-md-4 cont" key={i}>
-                        <div className="bug-list-element" onClick={() => this.clicked(bug)}>
-                            <img className="bug-img img-fluid" src="./assets/imgs/default.png" alt="bug-img"/>
+                        <div className="bug-list-element">
+                            <img onClick={() => this.clicked(bug)} className="bug-img img-fluid" src={bug.file ? `data:image/png;base64, ${Buffer.from(bug.file).toString('base64')}` : 'assets/imgs/default.png'} alt="bug-img"/>
+                            <img onClick={() => this.deleteClicked(bug)} className="x-img" src="assets/imgs/x.jpeg" alt="bug-delete" />
                             <div className="bug-info">
                                 <Row className="row">
-                                    <Col className="bug-label" xs={12} md={4}>Title</Col>
-                                    <Col xs={12} md={6}><b>{bug.title}</b></Col>
+                                    <Col className="bug-label" xs={12} md={5}>Title</Col>
+                                    <Col xs={12} md={7}><b>{bug.title}</b></Col>
                                 </Row>
                                 <Row className="row">
-                                    <Col xs={12} md={4}>Author</Col>
-                                    <Col xs={12} md={6}><b>{bug.author}</b></Col>
+                                    <Col xs={12} md={5}>Category</Col>
+                                    <Col className="bug-description" xs={12} md={7}>{bug.category}</Col>
                                 </Row>
                                 <Row className="row">
-                                    <Col xs={12} md={4}>Description</Col>
-                                    <Col className="bug-description" xs={12} md={6}>{bug.description}</Col>
-                                </Row>
-                                <Row className="row">
-                                    <Col xs={12} md={4}>Solution</Col>
-                                    <Col className="bug-description" xs={12} md={6}>{bug.solution}</Col>
+                                    <Col xs={12} md={5}>Description</Col>
+                                    <Col className="bug-description" xs={12} md={7}>{bug.description}</Col>
                                 </Row>
                             </div>
                         </div>
@@ -55,6 +69,11 @@ export default class BugListComponent extends React.Component {
                     bugSelected={this.state.bugSelected}
                     isBugInfoModalOpen={this.state.isBugInfoModalOpen}
                     closeBugInfoModal={this.closeBugInfoModal} />
+                <ConfirmationModal
+                    bugSelected={this.state.bugSelected}
+                    isConfirmationModalOpened={this.state.isBugDeleteConfirmationModalOpen}
+                    closeConfirmationModal={this.closeDeleteConfirmationModal}
+                    accept={this.confirmBugDelete}/>
             </div>
         )
     }

@@ -7,10 +7,9 @@ export const loginAction = payload => {
     }
 }
 
-export const loginErrorAction = payload => {
+export const loginErrorAction = () => {
     return {
-        type: LOGIN_ERROR,
-        payload
+        type: LOGIN_ERROR
     }
 }
 

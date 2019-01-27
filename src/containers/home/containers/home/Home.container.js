@@ -1,23 +1,28 @@
 import React from 'react'
 import NavbarComponent from '../../../../components/layout/navbar/Navbar.component'
 import { connect } from 'react-redux'
-import { listBugsProvider, refreshUserProvider } from '../../providers/home.provider'
+import { listBugsProvider, refreshUserProvider, deleteBugProvider } from '../../providers/home.provider'
+import { deleteBugStatusUndefined } from '../../Home.actions'
 import BugListComponent from '../../components/bug-list/bug-list.component'
 import { Button } from 'react-bootstrap'
+import * as Toastr from 'toastr'
 
 import './home.container.scss'
 
 const mapStateToProps = (state, props) => {
     return {
         bugs: state.HomeReducer.bugs,
-        refreshStatus: state.HomeReducer.refreshStatus
+        refreshStatus: state.HomeReducer.refreshStatus,
+        deleteBugStatus: state.HomeReducer.deleteBugStatus
     }
 }
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
         refreshUser: () => dispatch(refreshUserProvider()),
-        listBugsProvider: () => dispatch(listBugsProvider())
+        listBugsProvider: () => dispatch(listBugsProvider()),
+        deleteBug: (bug) => dispatch(deleteBugProvider(bug)),
+        deleteBugStatusUndefined: () => dispatch(deleteBugStatusUndefined())
     }
 }
 
@@ -28,23 +33,24 @@ class HomeContainer extends React.Component {
         this.state = {}
         this.addBug = this.addBug.bind(this)
     }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (!localStorage.getItem('token')) {
-            nextProps.history.push('/login')
-        }
-        return null
-    }
     
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/login')
+        }
         this.props.refreshUser()
         this.props.listBugsProvider()
     }
 
     componentDidUpdate(prevProps, prevState) {
-        /*if (prevProps.refreshStatus !== this.props.refreshStatus && this.props.refreshStatus === 'ko') {
-            this.props.history.push('/login')
-        }*/
+        console.log(this.props)
+        if (this.props.deleteBugStatus) {
+            Toastr.success('Bug deleted successfully')
+            this.props.listBugsProvider()
+        } else if (this.deleteBugStatus !== undefined) {
+            Toastr.error('There was a problem deleting the bug')
+        }
+        this.props.deleteBugStatusUndefined()
     }
 
     addBug() {
@@ -57,7 +63,7 @@ class HomeContainer extends React.Component {
                 <NavbarComponent />
                 <div className="container home-container">
                     <Button variant="raised" type="button" onClick={this.addBug}>Add bug</Button>
-                    <BugListComponent bugs={this.props.bugs} />
+                    <BugListComponent bugs={this.props.bugs} deleteBug={this.props.deleteBug} />
                 </div>
             </div>
         )
