@@ -25,11 +25,6 @@ class NavbarComponent extends React.Component {
         this.props.getProfileData()
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        // console.log(nextProps, prevState);
-        return null
-    }
-
     onTitleClick() {
     }
 

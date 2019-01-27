@@ -3,7 +3,7 @@ import {listBugs, listBugsError, refreshUser, refreshUserError} from '../Home.ac
 import { ENDPOINT } from '../../../App.constants'
 
 export function listBugsProvider() {
-    return dispatch => axios.get('assets/mocks/bugs.json')
+    return dispatch => axios.get(`${ENDPOINT}/bug/listAll`)
     .then(response => dispatch(listBugs(response.data)))
     .catch(error => dispatch(listBugsError()))
 }

@@ -15,7 +15,6 @@ const homeReducer = (state = initialState, action = {}) => {
         case LIST_BUGS_ERROR:
             return state;
         case REFRESH_USER:
-        console.log(!!action.payload.data.token)
             return {
                 ...state,
                 refreshStatus: !!action.payload.data.token ? 'ok' : 'ko'

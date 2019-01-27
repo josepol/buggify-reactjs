@@ -32,7 +32,6 @@ class AddBugContainer extends Component {
         if (!localStorage.getItem('token')) {
             nextProps.history.push('/login')
         }
-        console.log(nextProps, prevState);
         return null
     }
 
@@ -44,7 +43,6 @@ class AddBugContainer extends Component {
         if (prevProps.refreshStatus !== this.props.refreshStatus && this.props.refreshStatus === 'ko') {
             this.props.history.push('/login')
         }
-        console.log(prevProps, prevState);
     }
 
     authMiddleware = () => {

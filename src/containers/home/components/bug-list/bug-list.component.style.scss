@@ -48,6 +48,10 @@
     max-width: 200px;
 }
 
+.img-fluid {
+    width: 100% !important;
+}
+
 @keyframes bug-list-element-hover {
     from {
         background-color: green !important;
